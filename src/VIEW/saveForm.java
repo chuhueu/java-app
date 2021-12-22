@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import MODEL.studentModel;
+import CONTROL.studentController;
 
 /**
  *
@@ -135,30 +137,14 @@ public class saveForm extends javax.swing.JFrame {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         try {
-            //open connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test-java", "root", "");
-
             String masv = edtMasv.getText();
             String fullname = edtFullname.getText();
             String birthday = edtBirthday.getText();
             String address = edtAddress.getText();
-
-            Statement stm = conn.createStatement();
-            //mysql query to run
-            //String sql = "INSERT INTO student VALUES('" + masv + "', '" + fullname + "','" + birthday + "','" + address + "')";
-            String sql = "UPDATE student SET masv = '"+masv+"', fullname= '"+fullname+"', "
-                    + "birthday='"+birthday+"', address='"+address+"' WHERE masv='"+masv+"'";
-            boolean rs = stm.execute(sql);
-            if (rs) {
-                JOptionPane.showMessageDialog(this, "Faild");
-            } else {
-                JOptionPane.showMessageDialog(this, "Successfully");
-                dispose();
-                studentForm stu = new studentForm();
-                stu.show();
-            }
-            conn.close();
+            studentModel student = new studentModel(masv, fullname, birthday, address);
+            studentController studentControl = new studentController();
+            studentControl.addStudent(student);
+            JOptionPane.showMessageDialog(this, "Successfully");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
