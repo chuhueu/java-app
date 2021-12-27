@@ -122,8 +122,8 @@ public class loginForm extends javax.swing.JFrame {
             ResultSet log = dnc.Login(login);
             if(log.next()){
                 dispose(); //close login page
-                studentForm stu = new studentForm();
-                stu.show();
+                homepageForm home = new homepageForm();
+                home.show();
             }else{
                 JOptionPane.showMessageDialog(this, "login fail");
                 edtUsername.setText("");
