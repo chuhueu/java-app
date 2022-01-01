@@ -163,7 +163,7 @@ public class loginForm extends javax.swing.JFrame {
             ResultSet log = dnc.Login(login);
             if(log.next()){
                 dispose(); //close login page
-                homepageForm home = new homepageForm();
+                homepageForm home = new homepageForm(username);
                 home.show();
             }else{
                 JOptionPane.showMessageDialog(this, "login fail");
