@@ -14,6 +14,7 @@ public class employeeModel {
     private String manv;
     private String fullname;
     private String birthday;
+    private String sex;
     private String phoneNumber;
     private String address;
     private String position;
@@ -23,10 +24,11 @@ public class employeeModel {
     public employeeModel() {
     }
 
-    public employeeModel(String manv, String fullname, String birthday, String phoneNumber, String address, String position, String maphong, String mahoso) {
+    public employeeModel(String manv, String fullname, String birthday,String sex, String phoneNumber, String address, String position, String maphong, String mahoso) {
         this.manv = manv;
         this.fullname = fullname;
         this.birthday = birthday;
+        this.sex = sex;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.position = position;
@@ -56,6 +58,13 @@ public class employeeModel {
 
     public void setBirthday(String birthday) {
         this.birthday = birthday;
+    }
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getPhoneNumber() {
