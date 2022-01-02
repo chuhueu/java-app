@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/VIEW/homepageForm.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>33</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/E:/JAVA/java-app/src/CONTROL/connectDB.java</file>
             <file>file:/E:/JAVA/java-app/src/VIEW/homepageForm.java</file>
             <file>file:/E:/JAVA/java-app/src/VIEW/loginForm.java</file>
+=======
+            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/VIEW/homepageForm.java</file>
+            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/CONTROL/employeeController.java</file>
+            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/VIEW/loginForm.java</file>
+            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/CONTROL/loginController.java</file>
+            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/MODEL/loginModel.java</file>
+            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/VIEW/main.java</file>
+>>>>>>> b00fa6d3b44d04a0d54217fcfc6e0363fc2069b4
         </group>
     </open-files>
 </project-private>
