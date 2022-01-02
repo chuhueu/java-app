@@ -24,6 +24,7 @@ public class connectDB {
     public Connection run(){
         try {
             con = DriverManager.getConnection(DB_URL,USERNAME,PASSWORD);
+            System.out.println("from long");
         } catch (SQLException ex) {
             Logger.getLogger(connectDB.class.getName()).log(Level.SEVERE, null, ex);
         }
