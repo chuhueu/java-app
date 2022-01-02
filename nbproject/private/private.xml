@@ -5,7 +5,7 @@
             <url>src/VIEW/homepageForm.java</url>
             <bookmark id="1">
                 <name/>
-                <line>30</line>
+                <line>33</line>
                 <key/>
             </bookmark>
         </file>
@@ -14,10 +14,7 @@
         <group>
             <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/VIEW/homepageForm.java</file>
             <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/CONTROL/employeeController.java</file>
-            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/VIEW/employeeForm.java</file>
-            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/MODEL/employeeModel.java</file>
             <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/VIEW/loginForm.java</file>
-            <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/CONTROL/departmentController.java</file>
             <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/CONTROL/loginController.java</file>
             <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/MODEL/loginModel.java</file>
             <file>file:/C:/Users/chuhu/OneDrive/Pictures/Documents/NetBeansProjects/java-app/src/VIEW/main.java</file>

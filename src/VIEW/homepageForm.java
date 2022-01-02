@@ -35,6 +35,7 @@ public class homepageForm extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         rightPanel.setBackground(Color.WHITE);
+        tab1.setBackground(Color.gray);
         jb1.setVisible(true);
         jb2.setVisible(false);
         jb3.setVisible(false);
