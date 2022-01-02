@@ -6,8 +6,10 @@
 package VIEW;
 
 import CONTROL.departmentController;
+import CONTROL.employeeController;
 import CONTROL.loginController;
 import MODEL.departmentModel;
+import MODEL.employeeModel;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +27,7 @@ public class homepageForm extends javax.swing.JFrame {
 
     DefaultTableModel tableModel;
     List<departmentModel> ListRoom = new ArrayList<>();
-
+    List<employeeModel> ListEmployee = new ArrayList<>();
     /**
      * Creates new form Main
      *
@@ -42,7 +44,6 @@ public class homepageForm extends javax.swing.JFrame {
         jb4.setVisible(false);
         jb5.setVisible(false);
         jb6.setVisible(false);
-        tableModel = (DefaultTableModel) jtableRoom.getModel();
         try {
             loginController getUser = new loginController();
             ResultSet rs = getUser.getInfoUser(username);
@@ -120,13 +121,12 @@ public class homepageForm extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        edtMaphongg = new javax.swing.JTextField();
         jb3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jb4 = new javax.swing.JPanel();
         jb6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableEmployee = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -537,7 +537,7 @@ public class homepageForm extends javax.swing.JFrame {
         jb1Layout.setHorizontalGroup(
             jb1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jb1Layout.createSequentialGroup()
-                .addContainerGap(506, Short.MAX_VALUE)
+                .addContainerGap(530, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(200, 200, 200))
         );
@@ -615,10 +615,7 @@ public class homepageForm extends javax.swing.JFrame {
                         .addGap(75, 75, 75)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jb2Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(edtMaphongg, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(440, Short.MAX_VALUE))
         );
         jb2Layout.setVerticalGroup(
@@ -635,9 +632,7 @@ public class homepageForm extends javax.swing.JFrame {
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addComponent(edtMaphongg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
 
         jb3.setBackground(new java.awt.Color(51, 255, 153));
@@ -676,7 +671,7 @@ public class homepageForm extends javax.swing.JFrame {
 
         jb6.setBackground(new java.awt.Color(255, 102, 102));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableEmployee.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -696,7 +691,7 @@ public class homepageForm extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableEmployee);
 
         jButton1.setText("Them");
 
@@ -712,20 +707,19 @@ public class homepageForm extends javax.swing.JFrame {
             jb6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1)
             .addGroup(jb6Layout.createSequentialGroup()
-                .addGroup(jb6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jb6Layout.createSequentialGroup()
-                        .addGap(357, 357, 357)
-                        .addComponent(jButton1)
-                        .addGap(62, 62, 62)
-                        .addComponent(jButton2)
-                        .addGap(66, 66, 66)
-                        .addComponent(jButton3))
-                    .addGroup(jb6Layout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(139, 139, 139)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(228, 228, 228)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(388, Short.MAX_VALUE))
+            .addGroup(jb6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(66, 66, 66)
+                .addComponent(jButton2)
+                .addGap(65, 65, 65)
+                .addComponent(jButton3)
+                .addGap(373, 373, 373))
         );
         jb6Layout.setVerticalGroup(
             jb6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -734,14 +728,16 @@ public class homepageForm extends javax.swing.JFrame {
                 .addGroup(jb6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(85, 85, 85)
+                .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(205, 385, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jb6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jb6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addGap(244, 244, 244))
         );
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
@@ -813,7 +809,7 @@ public class homepageForm extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 845, Short.MAX_VALUE)))
+                    .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 871, Short.MAX_VALUE)))
         );
 
         pack();
@@ -849,6 +845,7 @@ public class homepageForm extends javax.swing.JFrame {
         tab1.setBackground(new Color(102, 102, 102));
         tab3.setBackground(new Color(102, 102, 102));
         tab4.setBackground(new Color(102, 102, 102));
+        tableModel = (DefaultTableModel) jtableRoom.getModel();
         showRoom();
     }//GEN-LAST:event_tab2MouseClicked
 
@@ -912,12 +909,14 @@ public class homepageForm extends javax.swing.JFrame {
         // set data to text field when row is selected
         String tblMaphong = tblModel.getValueAt(jtableRoom.getSelectedRow(), 0).toString();
         if (jtableRoom.getSelectedRowCount() == 1) {
-           jb6.setVisible(true);
+            jb6.setVisible(true);
             jb1.setVisible(false);
             jb2.setVisible(false);
             jb3.setVisible(false);
             jb4.setVisible(false);
             jb5.setVisible(false);
+            tableModel = (DefaultTableModel) jTableEmployee.getModel();
+            showEmplyeeByMaPhong(tblMaphong);
         }
     }//GEN-LAST:event_jtableRoomMouseClicked
 
@@ -934,8 +933,22 @@ public class homepageForm extends javax.swing.JFrame {
         tableModel.fireTableDataChanged();
     }
 
-    public void getUser() {
-
+    public void showEmplyeeByMaPhong(String maphong) {
+        ListEmployee = employeeController.getEmployByMaPhong(maphong);
+        tableModel.setRowCount(0);
+        ListEmployee.forEach((employeeModel) -> {
+            tableModel.addRow(new Object[]{
+                employeeModel.getManv(),
+                employeeModel.getFullname(),
+                employeeModel.getSex(),
+                employeeModel.getBirthday(),
+                employeeModel.getAddress(),
+                employeeModel.getPosition(),
+                employeeModel.getMaphong(),
+                employeeModel.getMahoso()
+            });
+        });
+        tableModel.fireTableDataChanged();
     }
 
     /**
@@ -987,7 +1000,6 @@ public class homepageForm extends javax.swing.JFrame {
     private javax.swing.JLabel edtMahs;
     private javax.swing.JLabel edtManv;
     private javax.swing.JLabel edtMaphong;
-    private javax.swing.JTextField edtMaphongg;
     private javax.swing.JLabel edtPosition;
     private javax.swing.JLabel edtRoleInfo;
     private javax.swing.JTextField edtSearchRoom;
@@ -1017,7 +1029,7 @@ public class homepageForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLable4;
     private javax.swing.JLabel jLable8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableEmployee;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jb1;
     private javax.swing.JPanel jb2;

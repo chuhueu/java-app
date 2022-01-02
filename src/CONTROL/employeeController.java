@@ -21,8 +21,8 @@ import java.util.List;
  * @author chuhu
  */
 public class employeeController {
-    public static List<employeeModel> getUserByMaPhong(String maphong) {
-        List<employeeModel> List = new ArrayList<>();
+    public static List<employeeModel> getEmployByMaPhong(String maphong) {
+        List<employeeModel> ListUser = new ArrayList<>();
         Connection conn = null;
         Statement statement = null;
         try {
@@ -31,7 +31,7 @@ public class employeeController {
             conn = connect.run();
             //query
             String sql = "SELECT manv, fullname, sex, birthday, address, position, epl.maphong, mahoso from employee epl, department dp "
-                    + "WHERE epl.maphong=dp.maphong and epl.maphong='"+maphong+"' ";
+                    + "WHERE epl.maphong=dp.maphong and epl.maphong='"+maphong+"'";
             statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()) {
@@ -44,7 +44,7 @@ public class employeeController {
                 nv.setPosition(rs.getString("position"));
                 nv.setMaphong(rs.getString("maphong"));
                 nv.setMahoso(rs.getString("mahoso"));
-                List.add(nv);
+                ListUser.add(nv);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,6 +57,6 @@ public class employeeController {
                 }
             }
         }
-        return List;
+        return ListUser;
     }
 }
