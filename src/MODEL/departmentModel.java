@@ -13,7 +13,7 @@ public class departmentModel {
     private String maphong;
     private String tenphong;
     private String leader;
-
+    private int soluong;
     public departmentModel() {
     }
 
@@ -45,6 +45,13 @@ public class departmentModel {
 
     public void setLeader(String leader) {
         this.leader = leader;
+    }
+    public int getSoluong() {
+        return soluong;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
     }
     
 }

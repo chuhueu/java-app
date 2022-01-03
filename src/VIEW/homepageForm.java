@@ -32,6 +32,7 @@ public class homepageForm extends javax.swing.JFrame {
     List<departmentModel> ListRoom = new ArrayList<>();
     List<employeeModel> ListEmployee = new ArrayList<>();
     String role;
+    String maphong;
 
     /**
      * Creates new form Main
@@ -50,6 +51,7 @@ public class homepageForm extends javax.swing.JFrame {
         jb5.setVisible(false);
         jb6.setVisible(false);
         jbAddEmployee.setVisible(false);
+        jbAddRoom.setVisible(false);
         try {
             loginController getUser = new loginController();
             ResultSet rs = getUser.getInfoUser(username);
@@ -62,6 +64,7 @@ public class homepageForm extends javax.swing.JFrame {
                 edtMaphong.setText(rs.getString("maphong"));
                 edtMahs.setText(rs.getString("mahoso"));
                 role = rs.getString("role");
+                maphong = rs.getString("maphong");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -132,7 +135,10 @@ public class homepageForm extends javax.swing.JFrame {
         btnUpdateRoom = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jb3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        edtSearch = new javax.swing.JTextField();
+        btnSearch = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEmployee1 = new javax.swing.JTable();
         jb4 = new javax.swing.JPanel();
         jb6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -162,9 +168,19 @@ public class homepageForm extends javax.swing.JFrame {
         edtMahsEmployee = new javax.swing.JTextField();
         jRadioNam = new javax.swing.JRadioButton();
         jRadioNu = new javax.swing.JRadioButton();
-        btnThem = new javax.swing.JButton();
-        btnSua = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnThemEmployee = new javax.swing.JButton();
+        btnSuaEmployee = new javax.swing.JButton();
+        btnBackEmployee = new javax.swing.JButton();
+        jbAddRoom = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        edtMaphongRoom = new javax.swing.JTextField();
+        edtTenphongRoom = new javax.swing.JTextField();
+        edtTruongphongRoom = new javax.swing.JTextField();
+        btnThemRoom = new javax.swing.JButton();
+        btnSuaRomm = new javax.swing.JButton();
+        btnBackRoom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1366, 768));
@@ -637,8 +653,18 @@ public class homepageForm extends javax.swing.JFrame {
         });
 
         btnDeleteRoom.setText("Xoa");
+        btnDeleteRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteRoomActionPerformed(evt);
+            }
+        });
 
         btnUpdateRoom.setText("Sua");
+        btnUpdateRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateRoomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jb2Layout = new javax.swing.GroupLayout(jb2);
         jb2.setLayout(jb2Layout);
@@ -652,17 +678,18 @@ public class homepageForm extends javax.swing.JFrame {
                         .addComponent(jLabel17))
                     .addGroup(jb2Layout.createSequentialGroup()
                         .addGap(272, 272, 272)
-                        .addComponent(edtSearchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(131, 131, 131)
-                        .addComponent(btnSearchDepartment))
-                    .addGroup(jb2Layout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(btnAddRoom)
-                        .addGap(114, 114, 114)
-                        .addComponent(btnDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107)
-                        .addComponent(btnUpdateRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(edtSearchRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(110, 110, 110)
+                        .addComponent(btnSearchDepartment)))
                 .addContainerGap(317, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jb2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAddRoom)
+                .addGap(77, 77, 77)
+                .addComponent(btnDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(btnUpdateRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
         );
         jb2Layout.setVerticalGroup(
             jb2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -675,33 +702,78 @@ public class homepageForm extends javax.swing.JFrame {
                 .addComponent(jbTableRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jLabel17)
-                .addGap(27, 27, 27)
+                .addGap(126, 126, 126)
                 .addGroup(jb2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdateRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDeleteRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdateRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(291, Short.MAX_VALUE))
+                    .addComponent(btnAddRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
-        jb3.setBackground(new java.awt.Color(51, 255, 153));
+        jb3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel5.setText("AE THÊM BẢNG CÓ NHỮNG THUỘC TÍNH SINH VIÊN VÀO NHÉ");
+        btnSearch.setText("Tim Kiem");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        jTableEmployee1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Ma Nhan Vien", "Ho Va Ten", "Gioi Tinh", "Ngay Sinh", "So Dien Thoai", "Dia Chi", "Vi Tri", "Ma Phong", "Ma Ho So"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTableEmployee1);
 
         javax.swing.GroupLayout jb3Layout = new javax.swing.GroupLayout(jb3);
         jb3.setLayout(jb3Layout);
         jb3Layout.setHorizontalGroup(
             jb3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jb3Layout.createSequentialGroup()
-                .addGap(396, 396, 396)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addGap(197, 197, 197)
+                .addComponent(edtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(119, 119, 119)
+                .addComponent(btnSearch)
+                .addContainerGap(405, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jb3Layout.setVerticalGroup(
             jb3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jb3Layout.createSequentialGroup()
-                .addGap(187, 187, 187)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(500, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jb3Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jb3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         jb4.setBackground(new java.awt.Color(51, 255, 255));
@@ -834,24 +906,24 @@ public class homepageForm extends javax.swing.JFrame {
         buttonGroup1.add(jRadioNu);
         jRadioNu.setText("Nu");
 
-        btnThem.setText("Them");
-        btnThem.addActionListener(new java.awt.event.ActionListener() {
+        btnThemEmployee.setText("Them");
+        btnThemEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemActionPerformed(evt);
+                btnThemEmployeeActionPerformed(evt);
             }
         });
 
-        btnSua.setText("Sua");
-        btnSua.addActionListener(new java.awt.event.ActionListener() {
+        btnSuaEmployee.setText("Sua");
+        btnSuaEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaActionPerformed(evt);
+                btnSuaEmployeeActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnBackEmployee.setText("Back");
+        btnBackEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnBackEmployeeActionPerformed(evt);
             }
         });
 
@@ -889,11 +961,11 @@ public class homepageForm extends javax.swing.JFrame {
                                 .addComponent(jRadioNu))))
                     .addGroup(jbAddEmployeeLayout.createSequentialGroup()
                         .addGap(399, 399, 399)
-                        .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnThemEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
-                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSuaEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnBackEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(321, Short.MAX_VALUE))
         );
         jbAddEmployeeLayout.setVerticalGroup(
@@ -941,10 +1013,88 @@ public class homepageForm extends javax.swing.JFrame {
                     .addComponent(edtMahsEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addGroup(jbAddEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSuaEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThemEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBackEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(270, Short.MAX_VALUE))
+        );
+
+        jbAddRoom.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel27.setText("Ma Phong");
+
+        jLabel28.setText("Ten Phong");
+
+        jLabel29.setText("Truong Phong");
+
+        btnThemRoom.setText("Them");
+        btnThemRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemRoomActionPerformed(evt);
+            }
+        });
+
+        btnSuaRomm.setText("Sua");
+        btnSuaRomm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaRommActionPerformed(evt);
+            }
+        });
+
+        btnBackRoom.setText("Back");
+        btnBackRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackRoomActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jbAddRoomLayout = new javax.swing.GroupLayout(jbAddRoom);
+        jbAddRoom.setLayout(jbAddRoomLayout);
+        jbAddRoomLayout.setHorizontalGroup(
+            jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jbAddRoomLayout.createSequentialGroup()
+                .addGroup(jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jbAddRoomLayout.createSequentialGroup()
+                        .addGap(297, 297, 297)
+                        .addGroup(jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel29))
+                        .addGap(77, 77, 77)
+                        .addGroup(jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(edtMaphongRoom)
+                            .addComponent(edtTenphongRoom)
+                            .addComponent(edtTruongphongRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)))
+                    .addGroup(jbAddRoomLayout.createSequentialGroup()
+                        .addGap(329, 329, 329)
+                        .addComponent(btnThemRoom)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSuaRomm)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnBackRoom)))
+                .addContainerGap(472, Short.MAX_VALUE))
+        );
+        jbAddRoomLayout.setVerticalGroup(
+            jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jbAddRoomLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addGroup(jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(edtMaphongRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(edtTenphongRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(edtTruongphongRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addGroup(jbAddRoomLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnThemRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSuaRomm, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBackRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(500, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout rightPanelLayout = new javax.swing.GroupLayout(rightPanel);
@@ -977,6 +1127,11 @@ public class homepageForm extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jbAddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(rightPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jbAddRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         rightPanelLayout.setVerticalGroup(
             rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1006,6 +1161,11 @@ public class homepageForm extends javax.swing.JFrame {
                 .addGroup(rightPanelLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(jbAddEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(rightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(rightPanelLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jbAddRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -1045,6 +1205,7 @@ public class homepageForm extends javax.swing.JFrame {
         jb5.setVisible(false);
         jb6.setVisible(false);
         jbAddEmployee.setVisible(false);
+        jbAddRoom.setVisible(false);
         tab1.setBackground(Color.gray);
         tab2.setBackground(new Color(102, 102, 102));
         tab3.setBackground(new Color(102, 102, 102));
@@ -1060,6 +1221,7 @@ public class homepageForm extends javax.swing.JFrame {
         jb5.setVisible(false);
         jb6.setVisible(false);
         jbAddEmployee.setVisible(false);
+        jbAddRoom.setVisible(false);
         tab2.setBackground(Color.gray);
         tab1.setBackground(new Color(102, 102, 102));
         tab3.setBackground(new Color(102, 102, 102));
@@ -1077,10 +1239,13 @@ public class homepageForm extends javax.swing.JFrame {
         jb5.setVisible(false);
         jb6.setVisible(false);
         jbAddEmployee.setVisible(false);
+        jbAddRoom.setVisible(false);
         tab3.setBackground(Color.gray);
         tab2.setBackground(new Color(102, 102, 102));
         tab1.setBackground(new Color(102, 102, 102));
         tab4.setBackground(new Color(102, 102, 102));
+        tableModel = (DefaultTableModel) jTableEmployee1.getModel();
+        showEmplyee();
     }//GEN-LAST:event_tab3MouseClicked
 
     private void tab4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tab4MouseClicked
@@ -1092,6 +1257,7 @@ public class homepageForm extends javax.swing.JFrame {
         jb5.setVisible(false);
         jb6.setVisible(false);
         jbAddEmployee.setVisible(false);
+        jbAddRoom.setVisible(false);
         tab4.setBackground(Color.gray);
         tab2.setBackground(new Color(102, 102, 102));
         tab3.setBackground(new Color(102, 102, 102));
@@ -1111,6 +1277,7 @@ public class homepageForm extends javax.swing.JFrame {
         jb5.setVisible(true);
         jb6.setVisible(false);
         jbAddEmployee.setVisible(false);
+        jbAddRoom.setVisible(false);
     }//GEN-LAST:event_AvatarMouseClicked
 
     private void logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseClicked
@@ -1138,6 +1305,7 @@ public class homepageForm extends javax.swing.JFrame {
             jb4.setVisible(false);
             jb5.setVisible(false);
             jbAddEmployee.setVisible(false);
+            jbAddRoom.setVisible(false);
             tableModel = (DefaultTableModel) jTableEmployee.getModel();
             showEmplyeeByMaPhong(tblMaphong);
         }
@@ -1157,14 +1325,10 @@ public class homepageForm extends javax.swing.JFrame {
 
     private void btnAddRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRoomActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddRoomActionPerformed
-
-    private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmployeeActionPerformed
-        // TODO add your handling code here:
-        if ("ADMIN".equals(role) || "MANAGE".endsWith(role)) {
-            btnSua.setVisible(false);
-            btnThem.setVisible(true);
-            jbAddEmployee.setVisible(true);
+        if ("ADMIN".equals(role)) {
+            btnSuaRomm.setVisible(false);
+            btnThemRoom.setVisible(true);
+            jbAddRoom.setVisible(true);
             jb6.setVisible(false);
             jb1.setVisible(false);
             jb2.setVisible(false);
@@ -1174,20 +1338,33 @@ public class homepageForm extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
         }
+    }//GEN-LAST:event_btnAddRoomActionPerformed
+
+    private void btnAddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmployeeActionPerformed
+        // TODO add your handling code here:
+        if ("ADMIN".equals(role) || "MANAGE".endsWith(role)) {
+            //if ("P01".equals(maphong)) {
+                btnSuaEmployee.setVisible(false);
+                btnThemEmployee.setVisible(true);
+                jbAddEmployee.setVisible(true);
+                jb6.setVisible(false);
+                jb1.setVisible(false);
+                jb2.setVisible(false);
+                jb3.setVisible(false);
+                jb4.setVisible(false);
+                jb5.setVisible(false);
+            //} else {
+              //  JOptionPane.showMessageDialog(this, "Bạn không phải ADMIN hoặc là Trưởng Phòng này!");
+            //}
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
+        }
     }//GEN-LAST:event_btnAddEmployeeActionPerformed
 
     private void btnUpdateEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateEmployeeActionPerformed
         // TODO add your handling code here:
         if ("ADMIN".equals(role) || "MANAGE".endsWith(role)) {
-            btnThem.setVisible(false);
-            btnSua.setVisible(true);
-            jb6.setVisible(false);
-            jb1.setVisible(false);
-            jb2.setVisible(false);
-            jb3.setVisible(false);
-            jb4.setVisible(false);
-            jb5.setVisible(false);
-            jbAddEmployee.setVisible(true);
             // set data to their textfield
             DefaultTableModel tblModel = (DefaultTableModel) jTableEmployee.getModel();
             // set data to text field when row is selected
@@ -1200,47 +1377,57 @@ public class homepageForm extends javax.swing.JFrame {
                 edtPositionEmployee.setText(tblModel.getValueAt(jTableEmployee.getSelectedRow(), 6).toString());
                 edtMaphongEmployee.setText(tblModel.getValueAt(jTableEmployee.getSelectedRow(), 7).toString());
                 edtMahsEmployee.setText(tblModel.getValueAt(jTableEmployee.getSelectedRow(), 8).toString());
+                String checkMaphong = tblModel.getValueAt(jTableEmployee.getSelectedRow(), 7).toString();
+                if ("ADMIN".equals(role) || maphong.equals(checkMaphong)) {
+                    btnThemEmployee.setVisible(false);
+                    btnSuaEmployee.setVisible(true);
+                    jb6.setVisible(false);
+                    jb1.setVisible(false);
+                    jb2.setVisible(false);
+                    jb3.setVisible(false);
+                    jb4.setVisible(false);
+                    jb5.setVisible(false);
+                    jbAddEmployee.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Bạn không phải ADMIN hoặc là Trưởng Phòng này!");
+                }
             }
+
         } else {
             JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
         }
     }//GEN-LAST:event_btnUpdateEmployeeActionPerformed
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+    private void btnThemEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemEmployeeActionPerformed
         // TODO add your handling code here:
-        if ("ADMIN".equals(role) || "MANAGE".endsWith(role)) {
-            if (checkForm() == false) {
-                JOptionPane.showMessageDialog(this, "Nhập thiếu ");
-            } else {
-                String manv = edtManvEmployee.getText();
-                String fullName = edtFullName.getText();
-                String birthday = edtBirthday.getText();
-                int phone = Integer.parseInt(edtPhone.getText());
-                String address = edtAddress.getText();
-                String position = edtPositionEmployee.getText();
-                String maPhong = edtMaphongEmployee.getText();
-                String maHoSo = edtMahsEmployee.getText();
-                employeeModel model = new employeeModel(manv, fullName, "Nam", birthday, phone, address, position, maPhong, maHoSo);
-                employeeController nv = new employeeController();
-                nv.addEmployee(model);
-                JOptionPane.showMessageDialog(this, "Thêm thành công");
-                edtManvEmployee.setText("");
-                edtFullName.setText("");
-                edtBirthday.setText("");
-                edtPhone.setText("");
-                edtAddress.setText("");
-                edtPositionEmployee.setText("");
-                edtMaphongEmployee.setText("");
-                edtMahsEmployee.setText("");
-                showEmplyeeByMaPhong(maPhong);
-            }
+        if (checkFormEmployee() == false) {
+            JOptionPane.showMessageDialog(this, "Nhập thiếu ");
         } else {
-            JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
+            String manv = edtManvEmployee.getText();
+            String fullName = edtFullName.getText();
+            String birthday = edtBirthday.getText();
+            int phone = Integer.parseInt(edtPhone.getText());
+            String address = edtAddress.getText();
+            String position = edtPositionEmployee.getText();
+            String maPhong = edtMaphongEmployee.getText();
+            String maHoSo = edtMahsEmployee.getText();
+            employeeModel model = new employeeModel(manv, fullName, "Nam", birthday, phone, address, position, maPhong, maHoSo);
+            employeeController nv = new employeeController();
+            nv.addEmployee(model);
+            JOptionPane.showMessageDialog(this, "Thêm thành công");
+            edtManvEmployee.setText("");
+            edtFullName.setText("");
+            edtBirthday.setText("");
+            edtPhone.setText("");
+            edtAddress.setText("");
+            edtPositionEmployee.setText("");
+            edtMaphongEmployee.setText("");
+            edtMahsEmployee.setText("");
+            showEmplyeeByMaPhong(maPhong);
         }
+    }//GEN-LAST:event_btnThemEmployeeActionPerformed
 
-    }//GEN-LAST:event_btnThemActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnBackEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackEmployeeActionPerformed
         // TODO add your handling code here:
         jb6.setVisible(true);
         jb1.setVisible(false);
@@ -1249,55 +1436,153 @@ public class homepageForm extends javax.swing.JFrame {
         jb4.setVisible(false);
         jb5.setVisible(false);
         jbAddEmployee.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnBackEmployeeActionPerformed
 
-    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+    private void btnSuaEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaEmployeeActionPerformed
         // TODO add your handling code here:
-        if ("ADMIN".equals(role) || "MANAGE".endsWith(role)) {
-            if (checkForm() == false) {
-                JOptionPane.showMessageDialog(this, "Nhập thiếu ");
-            } else {
-                String manv = edtManvEmployee.getText();
-                String fullName = edtFullName.getText();
-                String birthday = edtBirthday.getText();
-                int phone = Integer.parseInt(edtPhone.getText());
-                String address = edtAddress.getText();
-                String position = edtPositionEmployee.getText();
-                String maPhong = edtMaphongEmployee.getText();
-                String maHoSo = edtMahsEmployee.getText();
-                employeeModel model = new employeeModel(manv, fullName, "Nam", birthday, phone, address, position, maPhong, maHoSo);
-                employeeController nv = new employeeController();
-
-                nv.updateEmployee(model);
-                JOptionPane.showMessageDialog(this, "Sửa thành công");
-                showEmplyeeByMaPhong(maPhong);
-            }
+        if (checkFormEmployee() == false) {
+            JOptionPane.showMessageDialog(this, "Nhập thiếu ");
         } else {
-            JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
-        }
+            String manv = edtManvEmployee.getText();
+            String fullName = edtFullName.getText();
+            String birthday = edtBirthday.getText();
+            int phone = Integer.parseInt(edtPhone.getText());
+            String address = edtAddress.getText();
+            String position = edtPositionEmployee.getText();
+            String maPhong = edtMaphongEmployee.getText();
+            String maHoSo = edtMahsEmployee.getText();
+            employeeModel model = new employeeModel(manv, fullName, "Nam", birthday, phone, address, position, maPhong, maHoSo);
+            employeeController nv = new employeeController();
 
-    }//GEN-LAST:event_btnSuaActionPerformed
+            nv.updateEmployee(model);
+            JOptionPane.showMessageDialog(this, "Sửa thành công");
+            showEmplyeeByMaPhong(maPhong);
+        }
+    }//GEN-LAST:event_btnSuaEmployeeActionPerformed
 
     private void btnXoaEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaEmployeeActionPerformed
         // TODO add your handling code here:
         if ("ADMIN".equals(role) || "MANAGE".endsWith(role)) {
             DefaultTableModel tblModel = (DefaultTableModel) jTableEmployee.getModel();
             String manv = tblModel.getValueAt(jTableEmployee.getSelectedRow(), 0).toString();
-            String maphong = tblModel.getValueAt(jTableEmployee.getSelectedRow(), 7).toString();
+            String checkMaphong = tblModel.getValueAt(jTableEmployee.getSelectedRow(), 7).toString();
             if (jTableEmployee.getSelectedRowCount() == 1) {
-                int option = JOptionPane.showConfirmDialog(this, "Ban co muon xoa phong nay ?");
-                if (option == 0) {
-                    employeeController empl = new employeeController();
-                    empl.deleteEmployee(manv);
+                if ("ADMIN".equals(role) || maphong.equals(checkMaphong)) {
+                    int option = JOptionPane.showConfirmDialog(this, "Ban co muon xoa phong nay ?");
+                    if (option == 0) {
+                        employeeController empl = new employeeController();
+                        empl.deleteEmployee(manv);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Bạn không phải ADMIN hoặc là Trưởng Phòng này!");
                 }
-
             }
-            showEmplyeeByMaPhong(maphong);
+            showEmplyeeByMaPhong(checkMaphong);
         } else {
             JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
         }
 
     }//GEN-LAST:event_btnXoaEmployeeActionPerformed
+
+    private void btnThemRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemRoomActionPerformed
+        // TODO add your handling code here:
+        if (checkFormRoom() == false) {
+            JOptionPane.showMessageDialog(this, "Nhập thiếu ");
+        } else {
+            String maphong = edtMaphongRoom.getText();
+            String tenphong = edtTenphongRoom.getText();
+            String leader = edtTruongphongRoom.getText();
+            departmentModel model = new departmentModel(maphong, tenphong, leader);
+            departmentController nv = new departmentController();
+            nv.addRoom(model);
+            JOptionPane.showMessageDialog(this, "Thêm thành công");
+            edtMaphongRoom.setText("");
+            edtTenphongRoom.setText("");
+            edtTruongphongRoom.setText("");
+            showRoom();
+        }
+    }//GEN-LAST:event_btnThemRoomActionPerformed
+
+    private void btnBackRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackRoomActionPerformed
+        // TODO add your handling code here:
+        jb6.setVisible(false);
+        jb1.setVisible(false);
+        jb2.setVisible(true);
+        jb3.setVisible(false);
+        jb4.setVisible(false);
+        jb5.setVisible(false);
+        jbAddEmployee.setVisible(false);
+        jbAddRoom.setVisible(false);
+    }//GEN-LAST:event_btnBackRoomActionPerformed
+
+    private void btnDeleteRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteRoomActionPerformed
+        // TODO add your handling code here:
+        if ("ADMIN".equals(role)) {
+
+            String maphong = JOptionPane.showInputDialog("Nhap Ma Phong ban muon xoa");
+            int option = JOptionPane.showConfirmDialog(this, "Ban co muon xoa phong nay ?");
+            if (option == 0) {
+                departmentController control = new departmentController();
+                control.deleteRoom(maphong);
+            }
+            showRoom();
+        } else {
+            JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
+        }
+
+    }//GEN-LAST:event_btnDeleteRoomActionPerformed
+
+    private void btnUpdateRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRoomActionPerformed
+        // TODO add your handling code here:
+        if ("ADMIN".equals(role)) {
+            String maphong = JOptionPane.showInputDialog("Nhap Ma Phong ban muon sua");
+            btnSuaRomm.setVisible(true);
+            btnThemRoom.setVisible(false);
+            jbAddRoom.setVisible(true);
+            jb6.setVisible(false);
+            jb1.setVisible(false);
+            jb2.setVisible(false);
+            jb3.setVisible(false);
+            jb4.setVisible(false);
+            jb5.setVisible(false);
+            try {
+                departmentController room = new departmentController();
+                ResultSet rs = room.getRoomByMaphong(maphong);
+                if (rs.next()) {
+                    edtMaphongRoom.setText(rs.getString("maphong"));
+                    edtTenphongRoom.setText(rs.getString("tenphong"));
+                    edtTruongphongRoom.setText(rs.getString("leader"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Bạn không có thẩm quyền này!");
+        }
+    }//GEN-LAST:event_btnUpdateRoomActionPerformed
+
+    private void btnSuaRommActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaRommActionPerformed
+        // TODO add your handling code here:
+        if (checkFormRoom() == false) {
+            JOptionPane.showMessageDialog(this, "Nhập thiếu ");
+        } else {
+            String maphong = edtMaphongRoom.getText();
+            String tenphong = edtTenphongRoom.getText();
+            String leader = edtTruongphongRoom.getText();
+            departmentModel model = new departmentModel(maphong, tenphong, leader);
+            departmentController room = new departmentController();
+            room.updateRoom(model);
+            JOptionPane.showMessageDialog(this, "Sửa thành công");
+            showRoom();
+        }
+    }//GEN-LAST:event_btnSuaRommActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        String edtSearchEmployee = edtSearch.getText();
+        search(edtSearchEmployee);
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     public void showRoom() {
         ListRoom = departmentController.getRoom();
@@ -1306,12 +1591,12 @@ public class homepageForm extends javax.swing.JFrame {
             tableModel.addRow(new Object[]{
                 departmentModel.getMaphong(),
                 departmentModel.getTenphong(),
-                departmentModel.getLeader()
+                departmentModel.getLeader(),
+                departmentModel.getSoluong()
             });
         });
         tableModel.fireTableDataChanged();
     }
-
     public void showEmplyeeByMaPhong(String maphong) {
         ListEmployee = employeeController.getEmployByMaPhong(maphong);
         tableModel.setRowCount(0);
@@ -1331,10 +1616,35 @@ public class homepageForm extends javax.swing.JFrame {
         tableModel.fireTableDataChanged();
     }
 
+    public void showEmplyee() {
+        ListEmployee = employeeController.getEmployee();
+        tableModel.setRowCount(0);
+        ListEmployee.forEach((employeeModel) -> {
+            tableModel.addRow(new Object[]{
+                employeeModel.getManv(),
+                employeeModel.getFullname(),
+                employeeModel.getSex(),
+                employeeModel.getBirthday(),
+                employeeModel.getPhoneNumber(),
+                employeeModel.getAddress(),
+                employeeModel.getPosition(),
+                employeeModel.getMaphong(),
+                employeeModel.getMahoso()
+            });
+        });
+        tableModel.fireTableDataChanged();
+    }
+    public void search(String edtSearch) {
+        tableModel = (DefaultTableModel) jTableEmployee1.getModel();
+        TableRowSorter<DefaultTableModel> tableSort = new TableRowSorter<>(tableModel);
+        jTableEmployee1.setRowSorter(tableSort);
+        tableSort.setRowFilter(RowFilter.regexFilter("(?i)" + edtSearch));
+    }
+
     public void searchDepartment(String edtSearch) {
         tableModel = (DefaultTableModel) jtableRoom.getModel();
         TableRowSorter<DefaultTableModel> tableSort = new TableRowSorter<>(tableModel);
-        jTableEmployee.setRowSorter(tableSort);
+        jtableRoom.setRowSorter(tableSort);
         tableSort.setRowFilter(RowFilter.regexFilter("(?i)" + edtSearch));
     }
 
@@ -1345,11 +1655,19 @@ public class homepageForm extends javax.swing.JFrame {
         tableSort.setRowFilter(RowFilter.regexFilter("(?i)" + edtSearch));
     }
 
-    public boolean checkForm() {
+    public boolean checkFormEmployee() {
         if (edtManvEmployee.getText().isEmpty() || edtFullName.getText().isEmpty()
                 || edtBirthday.getText().isEmpty() || edtPhone.getText().isEmpty()
                 || edtAddress.getText().isEmpty() || edtPosition.getText().isEmpty()
                 || edtMaphongEmployee.getText().isEmpty() || edtMahsEmployee.getText().isEmpty()) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean checkFormRoom() {
+        if (edtMaphongRoom.getText().isEmpty() || edtTenphongRoom.getText().isEmpty()
+                || edtTruongphongRoom.getText().isEmpty()) {
             return false;
         }
         return true;
@@ -1398,11 +1716,16 @@ public class homepageForm extends javax.swing.JFrame {
     private javax.swing.JPanel Notice;
     private javax.swing.JButton btnAddEmployee;
     private javax.swing.JButton btnAddRoom;
+    private javax.swing.JButton btnBackEmployee;
+    private javax.swing.JButton btnBackRoom;
     private javax.swing.JButton btnDeleteRoom;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSearchDepartment;
     private javax.swing.JButton btnSearchEmployee;
-    private javax.swing.JButton btnSua;
-    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnSuaEmployee;
+    private javax.swing.JButton btnSuaRomm;
+    private javax.swing.JButton btnThemEmployee;
+    private javax.swing.JButton btnThemRoom;
     private javax.swing.JButton btnUpdateEmployee;
     private javax.swing.JButton btnUpdateRoom;
     private javax.swing.JButton btnXoaEmployee;
@@ -1418,15 +1741,18 @@ public class homepageForm extends javax.swing.JFrame {
     private javax.swing.JTextField edtManvEmployee;
     private javax.swing.JLabel edtMaphong;
     private javax.swing.JTextField edtMaphongEmployee;
+    private javax.swing.JTextField edtMaphongRoom;
     private javax.swing.JTextField edtPhone;
     private javax.swing.JLabel edtPosition;
     private javax.swing.JTextField edtPositionEmployee;
     private javax.swing.JLabel edtRoleInfo;
+    private javax.swing.JTextField edtSearch;
     private javax.swing.JTextField edtSearchEmployee;
     private javax.swing.JTextField edtSearchRoom;
+    private javax.swing.JTextField edtTenphongRoom;
+    private javax.swing.JTextField edtTruongphongRoom;
     private javax.swing.JLabel edtUsernameHome;
     private javax.swing.JLabel edtUsernameInfo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1446,9 +1772,11 @@ public class homepageForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1459,7 +1787,9 @@ public class homepageForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioNam;
     private javax.swing.JRadioButton jRadioNu;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableEmployee;
+    private javax.swing.JTable jTableEmployee1;
     private javax.swing.JPanel jb1;
     private javax.swing.JPanel jb2;
     private javax.swing.JPanel jb3;
@@ -1467,6 +1797,7 @@ public class homepageForm extends javax.swing.JFrame {
     private javax.swing.JPanel jb5;
     private javax.swing.JPanel jb6;
     private javax.swing.JPanel jbAddEmployee;
+    private javax.swing.JPanel jbAddRoom;
     private javax.swing.JScrollPane jbTableRoom;
     private javax.swing.JTable jtableRoom;
     private javax.swing.JPanel leftPanel;
