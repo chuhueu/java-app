@@ -22,6 +22,45 @@ import java.util.List;
  * @author chuhu
  */
 public class employeeController {
+    public static List<employeeModel> getEmployee() {
+        List<employeeModel> ListUser = new ArrayList<>();
+        Connection conn = null;
+        Statement statement = null;
+        try {
+            //get all info room
+            connectDB connect = new connectDB();
+            conn = connect.run();
+            //query
+            String sql = "SELECT manv, fullname, sex, birthday,phonenumber, address, position, epl.maphong, mahoso from employee epl, department dp "
+                    + "WHERE epl.maphong=dp.maphong";
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()) {
+                employeeModel nv = new employeeModel();
+                nv.setManv(rs.getString("manv"));
+                nv.setFullname(rs.getString("fullname"));
+                nv.setSex(rs.getString("sex"));
+                nv.setBirthday(rs.getString("birthday"));
+                nv.setPhoneNumber(rs.getInt("phonenumber"));
+                nv.setAddress(rs.getString("address"));
+                nv.setPosition(rs.getString("position"));
+                nv.setMaphong(rs.getString("maphong"));
+                nv.setMahoso(rs.getString("mahoso"));
+                ListUser.add(nv);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        }
+        return ListUser;
+    }
     public static List<employeeModel> getEmployByMaPhong(String maphong) {
         List<employeeModel> ListUser = new ArrayList<>();
         Connection conn = null;
@@ -91,7 +130,7 @@ public class employeeController {
         ResultSet rs = null;
 
         try {
-            String sql = "DELETE FROM employee where manv = ?";
+            String sql = "DELETE FROM employee WHERE manv =?";
             connectDB connect = new connectDB();
             conn = connect.run();
             ps = conn.prepareStatement(sql);
