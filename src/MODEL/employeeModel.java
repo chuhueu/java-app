@@ -15,7 +15,7 @@ public class employeeModel {
     private String fullname;
     private String birthday;
     private String sex;
-    private String phoneNumber;
+    private int phoneNumber;
     private String address;
     private String position;
     private String maphong;
@@ -24,7 +24,7 @@ public class employeeModel {
     public employeeModel() {
     }
 
-    public employeeModel(String manv, String fullname, String birthday,String sex, String phoneNumber, String address, String position, String maphong, String mahoso) {
+    public employeeModel(String manv, String fullname,String sex, String birthday, int phoneNumber, String address, String position, String maphong, String mahoso) {
         this.manv = manv;
         this.fullname = fullname;
         this.birthday = birthday;
@@ -67,11 +67,11 @@ public class employeeModel {
         this.sex = sex;
     }
 
-    public String getPhoneNumber() {
+    public int getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
