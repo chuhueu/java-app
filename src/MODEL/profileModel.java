@@ -9,16 +9,16 @@ package MODEL;
  *
  * @author chuhu
  */
-public class profile {
+public class profileModel {
     private String mahoso;
     private String fullname;
-    private String CCCD;
+    private int CCCD;
     private String address;
     private String dayin;
     private String dayout;
-    private String salary;
+    private int salary;
 
-    public profile(String mahoso, String fullname, String CCCD, String address, String dayin, String dayout, String salary) {
+    public profileModel(String mahoso, String fullname, int CCCD, String address, String dayin, String dayout, int salary) {
         this.mahoso = mahoso;
         this.fullname = fullname;
         this.CCCD = CCCD;
@@ -28,7 +28,7 @@ public class profile {
         this.salary = salary;
     }
 
-    public profile() {
+    public profileModel() {
     }
 
     public String getMahoso() {
@@ -47,11 +47,11 @@ public class profile {
         this.fullname = fullname;
     }
 
-    public String getCCCD() {
+    public int getCCCD() {
         return CCCD;
     }
 
-    public void setCCCD(String CCCD) {
+    public void setCCCD(int CCCD) {
         this.CCCD = CCCD;
     }
 
@@ -79,11 +79,11 @@ public class profile {
         this.dayout = dayout;
     }
 
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
     

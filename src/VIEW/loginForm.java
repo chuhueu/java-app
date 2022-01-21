@@ -223,7 +223,7 @@ public class loginForm extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "login fail");
                 edtPassword.setText("");
-                edtUsername.setText("");
+                 
             }
         } catch (Exception ex) {
             Logger.getLogger(loginForm.class.getName()).log(Level.SEVERE, null, ex);

@@ -51,4 +51,19 @@ public class loginController {
         }
         return rs;
     }
+    public ResultSet getUser(String username) {
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet rs = null;
+        try {
+            String sql = "SELECT * FROM user WHERE username='"+username+"'";
+            connectDB connCtr = new connectDB();
+            conn = connCtr.run();
+            statement = conn.prepareStatement(sql);
+            rs = statement.executeQuery(sql);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
 }

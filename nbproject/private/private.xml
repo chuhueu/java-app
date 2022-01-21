@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/chuhu/OneDrive/Desktop/java-app-hieudev/src/VIEW/employeeForm.java</file>
-            <file>file:/C:/Users/chuhu/OneDrive/Desktop/java-app-hieudev/src/CONTROL/employeeController.java</file>
+            <file>file:/F:/java/java-app/src/VIEW/homepageForm.java</file>
+            <file>file:/F:/java/java-app/src/VIEW/main.java</file>
+            <file>file:/F:/java/java-app/src/CONTROL/profileController.java</file>
+            <file>file:/F:/java/java-app/src/CONTROL/departmentController.java</file>
+            <file>file:/F:/java/java-app/src/MODEL/loginModel.java</file>
+            <file>file:/F:/java/java-app/src/CONTROL/loginController.java</file>
         </group>
     </open-files>
 </project-private>
